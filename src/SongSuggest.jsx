@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Lyrics from "./lyrics/Lyrics";
 import fetchLyrics from "./lyrics/LyricsAPI";
-import { FaSearch } from "react-icons/fa";
+import SearchBar from "./SearchBar";
 
 const SongSuggest = () => {
   const [suggestions, setSuggestions] = useState([]);
@@ -47,23 +47,11 @@ const SongSuggest = () => {
 
   return (
     <>
-      <div className="mt-5 text-center">
-        <form onSubmit={handleSearch} className="flex justify-center gap-2">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Enter the song name / artist"
-            className="h-12 w-96 rounded-lg border-2 border-gray-300 p-3"
-          />
-          <button
-            type="submit"
-            className="flex h-12 w-12 items-center justify-center rounded-lg border bg-blue-500 p-1 text-white transition hover:bg-blue-600"
-          >
-            <FaSearch />
-          </button>
-        </form>
-      </div>
+      <SearchBar
+        query={query}
+        setQuery={setQuery}
+        handleSearch={handleSearch}
+      />
       <ul className="my-5 rounded-lg border-2 border-gray-300 bg-gray-100">
         {suggestions.map((suggestion) => (
           <li

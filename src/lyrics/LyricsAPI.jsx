@@ -3,7 +3,7 @@ import axios from "axios";
 const fetchLyrics = async (title, artist) => {
   try {
     const response = await axios.get(
-      `https://api.lyrics.ovh/v1/${artist}/${title}`
+      `https://api.lyrics.ovh/v1/${artist}/${title}`,
     );
     return {
       lyrics: response.data.lyrics,

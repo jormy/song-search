@@ -6,6 +6,7 @@ function Lyrics({ lyricsData }) {
   let initialValue = <FaRegCopy />;
   const [buttonText, setButtonText] = useState(initialValue);
 
+  // copy lyrics button
   const handleClick = async () => {
     await navigator.clipboard.writeText(lyricsData.lyrics);
     setButtonText(<FaCheck />);
@@ -32,7 +33,6 @@ function Lyrics({ lyricsData }) {
           className="h-10 w-10 p-2 text-2xl text-gray-300 transition hover:text-gray-400"
           onClick={handleClick}
         >
-          {/* <FaRegCopy /> */}
           {buttonText}
         </button>
       </div>
