@@ -11,6 +11,7 @@ const SongSuggest = () => {
     title: "",
     artist: "",
     albumArt: "",
+    albumName: "", // Add albumName here
   });
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,12 +30,13 @@ const SongSuggest = () => {
     }
   };
 
-  const handleSuggestionClick = async (title, artist, albumArt) => {
+  const handleSuggestionClick = async (title, artist, albumArt, albumName) => {
     setLoading(true);
     const fetchedLyrics = await fetchLyrics(title, artist);
     setLyricsData({
       ...fetchedLyrics,
-      albumArt: albumArt, // Set the album art here
+      albumArt: albumArt,
+      albumName: albumName,
     });
     setSuggestions([]); // Clear suggestions after clicking
     setLoading(false);
@@ -52,7 +54,7 @@ const SongSuggest = () => {
         setQuery={setQuery}
         handleSearch={handleSearch}
       />
-      <ul className="my-5 rounded-lg border-2 border-gray-300 bg-gray-100">
+      <ul className="bg-coal-950 my-5 rounded-lg">
         {suggestions.map((suggestion) => (
           <li
             key={suggestion.id}
@@ -61,9 +63,10 @@ const SongSuggest = () => {
                 suggestion.title,
                 suggestion.artist.name,
                 suggestion.album.cover_medium,
+                suggestion.album.title,
               )
             }
-            className="cursor-pointer p-3 hover:bg-gray-200"
+            className="hover:bg-coal-900 cursor-pointer p-3 transition"
           >
             {suggestion.title} - {suggestion.artist.name}
           </li>

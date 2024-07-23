@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { FaRegCopy } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa";
+import { FaRegCopy, FaCheck } from "react-icons/fa";
 
 function Lyrics({ lyricsData }) {
-  let initialValue = <FaRegCopy />;
+  const initialValue = <FaRegCopy />;
   const [buttonText, setButtonText] = useState(initialValue);
 
-  // copy lyrics button
   const handleClick = async () => {
     await navigator.clipboard.writeText(lyricsData.lyrics);
     setButtonText(<FaCheck />);
@@ -16,7 +14,7 @@ function Lyrics({ lyricsData }) {
   };
 
   return (
-    <div>
+    <div className="bg-coal-950 rounded-lg p-5">
       <div className="flex justify-between">
         <div className="mb-5 flex gap-3">
           <img
@@ -27,16 +25,17 @@ function Lyrics({ lyricsData }) {
           <div>
             <h2 className="max-w-72 font-bold">{lyricsData.title}</h2>
             <h3>{lyricsData.artist}</h3>
+            <h4 className="text-coal-50 font-light">{lyricsData.albumName}</h4>
           </div>
         </div>
         <button
-          className="h-10 w-10 p-2 text-2xl text-gray-300 transition hover:text-gray-400"
+          className="text-coal-500 hover:text-coal-300 h-10 w-10 p-2 text-2xl transition"
           onClick={handleClick}
         >
           {buttonText}
         </button>
       </div>
-      <p className="whitespace-pre-line">{lyricsData.lyrics}</p>
+      <p className="text-coal-50 whitespace-pre-line">{lyricsData.lyrics}</p>
     </div>
   );
 }
