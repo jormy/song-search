@@ -1,11 +1,12 @@
-import SongSuggest from './SongSuggest';
+import SongSuggest from "./SongSuggest";
 
 function App() {
   return (
     <div className="flex justify-center">
       <div>
-        <div className="mt-96">
-          <h1 className="font-bold text-3xl">Lyrics Finder :3</h1>
+        <div className="">
+          <h1 className="font-bold text-3xl">song search</h1>
+          <p className="text-md">simple song lyrics finder made with react</p>
           <SongSuggest />
         </div>
       </div>
