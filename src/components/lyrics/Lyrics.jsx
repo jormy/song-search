@@ -27,7 +27,7 @@ function Lyrics({ lyricsData }) {
             <h2 className="max-w-72 font-bold">
               {lyricsData.title}{" "}
               {lyricsData.explicit && (
-                <MdExplicit className="ml-1 inline text-coal-200" />
+                <MdExplicit className="ml-1 inline text-coal-300" />
               )}
             </h2>
             <h3>{lyricsData.artist}</h3>
