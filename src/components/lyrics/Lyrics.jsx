@@ -35,7 +35,7 @@ function Lyrics({ lyricsData }) {
           </div>
         </div>
         <button
-          className="h-10 w-10 p-2 text-2xl text-coal-500 transition hover:text-coal-300"
+          className="ml-2 h-10 w-10 p-2 text-2xl text-coal-500 transition hover:text-coal-300"
           onClick={handleClick}
         >
           {buttonText}
