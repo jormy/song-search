@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaRegCopy, FaCheck } from "react-icons/fa";
+import { MdExplicit } from "react-icons/md";
 
 function Lyrics({ lyricsData }) {
   const initialValue = <FaRegCopy />;
@@ -14,7 +15,7 @@ function Lyrics({ lyricsData }) {
   };
 
   return (
-    <div className="bg-coal-950 rounded-lg p-5">
+    <div className="rounded-lg bg-coal-950 p-5">
       <div className="flex justify-between">
         <div className="mb-5 flex gap-3">
           <img
@@ -23,19 +24,24 @@ function Lyrics({ lyricsData }) {
             alt="Album art"
           />
           <div>
-            <h2 className="max-w-72 font-bold">{lyricsData.title}</h2>
+            <h2 className="max-w-72 font-bold">
+              {lyricsData.title}{" "}
+              {lyricsData.explicit && (
+                <MdExplicit className="ml-1 inline text-coal-200" />
+              )}
+            </h2>
             <h3>{lyricsData.artist}</h3>
-            <h4 className="text-coal-50 font-light">{lyricsData.albumName}</h4>
+            <h4 className="font-light text-coal-50">{lyricsData.albumName}</h4>
           </div>
         </div>
         <button
-          className="text-coal-500 hover:text-coal-300 h-10 w-10 p-2 text-2xl transition"
+          className="h-10 w-10 p-2 text-2xl text-coal-500 transition hover:text-coal-300"
           onClick={handleClick}
         >
           {buttonText}
         </button>
       </div>
-      <p className="text-coal-50 whitespace-pre-line">{lyricsData.lyrics}</p>
+      <p className="whitespace-pre-line text-coal-50">{lyricsData.lyrics}</p>
     </div>
   );
 }

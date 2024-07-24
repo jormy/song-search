@@ -7,7 +7,7 @@ const fetchLyrics = async (title, artist) => {
     );
     let lyrics = response.data.lyrics;
 
-    // api occasionally returns "Paroles de la chanson <artist>" before the lyrics. might migrate to genius api eventually to remove this issue
+    // api occasionally returns "Paroles de la chanson" before the lyrics. might migrate to genius api eventually to remove this issue
     if (lyrics.startsWith("Paroles de la chanson")) {
       const lines = lyrics.split("\n");
       lines.shift(); // Remove the first line
