@@ -17,7 +17,7 @@ const SearchBar = ({ setLyricsData }) => {
   const fetchSuggestions = async (query) => {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/http://api.deezer.com/search?limit=5&q=${query}`,
+        `https://corsproxy.io/?http://api.deezer.com/search?limit=5&q=${query}`,
       );
       setSuggestions(response.data.data);
     } catch (error) {
